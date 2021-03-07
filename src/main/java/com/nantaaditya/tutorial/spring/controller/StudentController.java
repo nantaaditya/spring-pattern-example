@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 /**
  * created by pramuditya.anantanur
@@ -25,14 +25,16 @@ public class StudentController {
       consumes = MediaType.APPLICATION_JSON_VALUE,
       produces = MediaType.APPLICATION_JSON_VALUE
   )
-  public void save(@RequestBody Student student) {
-    studentService.save(student);
+  public Mono<Student> save(@RequestBody Student student) {
+    return studentService.save(student)
+        .log();
   }
   
   @GetMapping(
       produces = MediaType.APPLICATION_JSON_VALUE
   )
-  public List<Student> findAll() {
-    return studentService.findAll();
+  public Flux<Student> findAll() {
+    return studentService.findAll()
+        .log();
   }
 }

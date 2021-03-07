@@ -1,6 +1,8 @@
 package com.nantaaditya.tutorial.spring.service;
 
 import com.nantaaditya.tutorial.spring.model.Student;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -9,7 +11,7 @@ import java.util.List;
  **/
 public interface StudentService {
   
-  void save(Student student);
+  Mono<Student> save(Student student);
   
-  List findAll();
+  Flux<Student> findAll();
 }
