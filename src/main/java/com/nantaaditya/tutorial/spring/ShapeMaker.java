@@ -1,4 +1,9 @@
-package com.nantaaditya.tutorial.spring.service;
+package com.nantaaditya.tutorial.spring;
+
+import com.nantaaditya.tutorial.spring.service.Shape;
+import com.nantaaditya.tutorial.spring.service.impl.Circle;
+import com.nantaaditya.tutorial.spring.service.impl.Rectangle;
+import com.nantaaditya.tutorial.spring.service.impl.Square;
 
 import java.util.ArrayList;
 import java.util.List;
